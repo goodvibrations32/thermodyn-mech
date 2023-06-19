@@ -1,0 +1,134 @@
+#+TITLE: Thermodynamics
+#+SUBTITLE: notes
+:ORG-PROPERTIES:
+# #+STARTUP: latexpreview
+#+OPTIONS: tags:t
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+EXCLUDE_TAGS: noexport
+#+TAGS:  noexport(n)
+:END:
+:LATEX-STUFF:
+#+LATEX_HEADER: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER: \usepackage[LGR]{fontenc}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \usepackage[english,greek]{babel}
+:end:
+* make latex bigger :noexport:
+#+begin_src emacs-lisp :tangle yes
+(setq-local org-format-latex-options
+            '(:foreground default
+              :background default
+              :scale 2.85
+              :html-foreground "Black"
+              :html-background "Transparent"
+              :html-scale 1.0
+              :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
+#+end_src
+
+#+RESULTS:
+| :foreground | default | :background | default | :scale | 2.85 | :html-foreground | Black | :html-background | Transparent | :html-scale | 1.0 | :matchers | (begin $1 $ $$ \( \[) |
+
+* Energy
+** Special esoteric energy
+\begin{equation}
+\begin{align}
+\bar u = \frac{U}{m} \ [\right\frac{J}{kg}\left], \\
+&m = mass \\
+&U = energy \\
+\end{align}
+\end{equation}
+
+* density
+
+\begin{equation}
+\begin{align}
+p= \frac{m}{V}
+\end{align}
+\end{equation}
+
+* Special Volume
+Opposite of density
+\begin{equation}
+\begin{align}
+\bar v = \frac{m}{V}
+\end{align}
+\end{equation}
+* properties of clean solutions in thermodynamix by Katsap
+
+** hydrated/dehydrated steam :example1:
+
+\selectlanguage{greek}
+*** Υδρατμοι 20 %
+*** Πιεση
+\selectlanguage{english}
+150 kPa
+**** solution :example1:
+\selectlanguage{greek}
+
+Απο πίνακες πρεπει να τα βρίσκω όλα ...
+
+για να μπορέσω να τα βρώ θέλω τον σωστό πίνακα.....
+
+[[file:/home/dtos_experiment/Documents/univercity/thermodynamics/hydrted-steam-solution.png]]
+\selectlanguage{english}
+** coolant enthalpy :example2:
+*** 20 kg (R134a)
+*** air composition 85%
+*** heated at 90 °C
+*** constant pressure 1MPa
+**** solution :example2:
+1. go to tables
+2. find all needed stuff
+   \(u_{f},...,h_{f}\)
+3. solve the God damn thing by:
+   1. plugin the values
+   2. u and h have the same general equation. (see example1)
+4. x is always the (%) given in the known states of the system.
+5. go in the P/H diagram and cross-find special enthalpy
+   \(h_{2}\)
+6. solve the easyest  equation
+   \(\Delta(H) = \Delta(h) \cdot m \)
+** overheated steam :example3:
+*** Pressure \(P_{g}\) = 1,5 \([(MNt)/m^2]=[MPa]\)
+*** degrees Of Heating \Theta  = 76,7 °C
+**** solution :example3:
+1. degrees Of Heating == \Theta °C \uparrow+ \(T_{sat}\)( °C ) at 1,5 \(MPa\)
+2. Linear interpolation  for T1 and T2 at \(P_{g}\), where \(P_{g}\) \in{P1<P<P2}
+
+   \selectlanguage{greek}
+   (γραμμική παρεμβολή)
+   \selectlanguage{english}
+
+3. find the mean value T
+   \((T_{n}-T_{n-1})/n\)
+4. for \(h\)
+   1. calculate \(h\) for P1 and P2 in the respective for T
+
+      Where T1<
+      T=°C \uparrow+ Tκορ(°C) σε 1,5 \(MPa\)
+      <T2
+
+   2. compute the lin. interpolation for \(h\) at T (see (1.))
+      [[file:~/Documents/univercity/thermodynamics/triple-lin-interpol.png]]
+* 1st law of thermodynamix by Katsap
+** dencity and special volume
+\begin{equation}
+\begin{align}
+d = \frac{1}{u} \\
+where\ u &= \frac{V}{m} \\
+&= \frac{\dot{V}}{\dot{m}} \\
+\end{align}
+\end{equation}
+** mass/volume supply
+
+#+attr_latex:  :width 250px
+#+attr_latex:  :height 140px
+[[file:~/Documents/univercity/thermodynamics/supply-equations.png]]
+** mass preservation :example2:
+*** given stuff
+1. m = \(6 \times 10^{3}\ [\frac{kg}{h}]\)
+2. Ain = 1,5 \(m^{2}\)
+   Aout = 0,55 \(m^{2}\)
+3. v = 0,3 \(\frac{m^{3}}{kg}\)
+4.
